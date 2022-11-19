@@ -5,6 +5,7 @@ import RegisterForm from "./components/RegisterForm/RegisterForm";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./components/HomePage/HomePage";
 import LoginPage from "./components/LoginPage/LoginPage";
+import CurrenciesForm from "./components/CurrenciesForm/CurrenciesForm";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/currencies" element={<CurrenciesForm />} />
           <Route path="/register" element={<RegisterForm />} />
         </Routes>
       </BrowserRouter>
