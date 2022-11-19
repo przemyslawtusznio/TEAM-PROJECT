@@ -2,6 +2,8 @@ import React from 'react';
 import Navbar from './components/Navbar/Navbar';
 import LoginPage from './components/LoginPage/LoginPage';
 import {BrowserRouter, Routes, Route} from "react-router-dom"
+import HomePage from './components/HomePage/HomePage';
+
 
 
 function App() {
@@ -10,6 +12,7 @@ function App() {
       <BrowserRouter>
       <Navbar />
       <Routes>
+        <Route path='/' element = {<HomePage/>} />
         <Route path='/login' element= {<LoginPage/>} />
       </Routes>
       
