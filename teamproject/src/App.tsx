@@ -1,4 +1,5 @@
 import React from 'react';
+import CurrenciesForm from './components/CurrenciesForm/CurrenciesForm';
 import Navbar from './components/Navbar/Navbar';
 
 function App() {
