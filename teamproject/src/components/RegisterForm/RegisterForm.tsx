@@ -52,7 +52,7 @@ const RegisterForm = () => {
         <Button
           type="submit"
           variant="contained"
-          sx={{ display: "block", mx: "auto" }}
+          sx={{ display: "block", my: ".5rem", mx: "auto" }}
         >
           Register now!
         </Button>

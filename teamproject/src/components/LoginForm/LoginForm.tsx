@@ -28,6 +28,14 @@ const LoginForm = () => {
 
         <TextField
           variant="outlined"
+          type="email"
+          placeholder="email"
+          sx={{ display: "block", mx: "auto", my: ".8rem" }}
+          {...register("email", { required: true })}
+        ></TextField>
+
+        <TextField
+          variant="outlined"
           type="password"
           placeholder="password"
           sx={{ display: "block", mx: "auto", my: ".8rem" }}
