@@ -2,6 +2,9 @@ import React from 'react'
 import {Card, Typography, TextField, Button} from '@mui/material'
 import { useForm } from 'react-hook-form'
 import { LoginFormData } from '../helpers/Interfaces'
+import { signInWithEmailAndPassword, } from 'firebase/auth'
+import { auth } from '../../helpers/firebaseConfig'
+
 
 
 const LoginForm = () => {
@@ -10,6 +13,8 @@ const LoginForm = () => {
 
     const SubmitHandler = (data: LoginFormData) => {
 
+        signInWithEmailAndPassword(auth, data.email, data.password)
+        .then(() => console.log("Login succesfull"))
     }
     
     return (   

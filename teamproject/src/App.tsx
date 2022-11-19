@@ -1,12 +1,20 @@
 import React from 'react';
 import Navbar from './components/Navbar/Navbar';
-import LoginForm from './components/LoginForm/LoginForm';
+import LoginPage from './components/LoginPage/LoginPage';
+import {BrowserRouter, Routes, Route} from "react-router-dom"
+
 
 function App() {
   return (
     <div className="App">
+      <BrowserRouter>
       <Navbar />
-      <LoginForm/>
+      <Routes>
+        <Route path='/login' element= {<LoginPage/>} />
+      </Routes>
+      
+      </BrowserRouter>
+      
     </div>
   );
 }
