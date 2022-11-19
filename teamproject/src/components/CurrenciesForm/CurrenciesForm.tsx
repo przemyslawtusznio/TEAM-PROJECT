@@ -7,6 +7,8 @@ import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 import dayjs, { Dayjs } from 'dayjs';
 import FormControl from '@mui/material/FormControl';
 import Box from '@mui/material/Box';
+import axios from 'axios';
+import { useState, useEffect } from "react";
 
 const CurrenciesForm = () => {
   const [firstCurrency, setFirstCurrency] = React.useState<string>('');
@@ -54,6 +56,20 @@ const CurrenciesForm = () => {
     setValue(newValue);
   };
 
+  const [todaysCurrencies, setTodaysCurrencies] = useState([]);
+  useEffect(() =>{
+ 
+    
+    axios.get(
+      `http://api.nbp.pl/api/exchangerates/tables/A/`
+      ).then((response) => {
+        setTodaysCurrencies(response.data[0].rates)
+        console.log(response);
+      }).catch((err) => {
+        console.error(err.message);
+      });
+  }, []);
+
 
   return (
     <Card sx= {{mb: '1rem', width: "500px"}}>
@@ -78,9 +94,9 @@ const CurrenciesForm = () => {
               label="Waluta"
               onChange={handleChange}
             >
-              <MenuItem value={10}>PLN</MenuItem>
-              <MenuItem value={20}>EUR</MenuItem>
-              <MenuItem value={30}>USD</MenuItem>
+              {todaysCurrencies.length !== 0 && todaysCurrencies.map((curr:any) => {
+                return <MenuItem value={curr.mid}>{curr.currency} {curr.code} {curr.mid}</MenuItem>
+              })}
             </Select>
           </FormControl>
         </Box>
@@ -95,9 +111,9 @@ const CurrenciesForm = () => {
               label="Waluta"
               onChange={handleChange}
             >
-              <MenuItem value={10}>PLN</MenuItem>
-              <MenuItem value={20}>EUR</MenuItem>
-              <MenuItem value={30}>USD</MenuItem>
+              {todaysCurrencies.length !== 0 && todaysCurrencies.map((curr:any) => {
+                return <MenuItem value={curr.mid}>{curr.currency} {curr.code} {curr.mid}</MenuItem>
+              })}
             </Select>
           </FormControl>
         </Box>
