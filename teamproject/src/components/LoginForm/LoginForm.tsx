@@ -1,20 +1,18 @@
-import React from 'react'
-import {Card, Typography, TextField, Button} from '@mui/material'
-import { useForm } from 'react-hook-form'
-import { LoginFormData } from '../../helpers/interfaces'
-import { signInWithEmailAndPassword, } from 'firebase/auth'
-import { auth } from '../../helpers/firebaseConfig'
-
-
+import React from "react";
+import { Card, Typography, TextField, Button } from "@mui/material";
+import { useForm } from "react-hook-form";
+import { LoginFormData } from "../../helpers/interfaces";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../helpers/firebaseConfig";
 
 const LoginForm = () => {
   const { register, handleSubmit } = useForm<LoginFormData>();
 
   const SubmitHandler = (data: LoginFormData) => {
-
-    signInWithEmailAndPassword(auth, data.email, data.password)
-        .then(() => console.log("Login succesfull"))
-    }
+    signInWithEmailAndPassword(auth, data.email, data.password).then(() =>
+      console.log("Login succesfull")
+    );
+  };
 
   return (
     <Card sx={{ mb: "1rem" }}>
@@ -27,7 +25,6 @@ const LoginForm = () => {
         >
           Log In
         </Typography>
- 
 
         <TextField
           variant="outlined"
@@ -51,4 +48,3 @@ const LoginForm = () => {
 };
 
 export default LoginForm;
-
