@@ -6,24 +6,21 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
-import Badge from '@mui/material/Badge';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import AccountCircle from '@mui/icons-material/AccountCircle';
-import MoreIcon from '@mui/icons-material/MoreVert';
-
 
 const Navbar = () => {
 
     const Search = styled('div')(({ theme }) => ({
         position: 'relative',
         borderRadius: theme.shape.borderRadius,
-        backgroundColor: alpha(theme.palette.common.white, 0.15),
+        backgroundColor: "00098E",
         '&:hover': {
-          backgroundColor: alpha(theme.palette.common.white, 0.25),
-        },
+          backgroundColor: "#ffffff",
+        },  
         marginRight: theme.spacing(2),
         marginLeft: 0,
         width: '100%',
@@ -44,7 +41,7 @@ const Navbar = () => {
       }));
       
       const StyledInputBase = styled(InputBase)(({ theme }) => ({
-        color: 'inherit',
+        color: '000A9C',
         '& .MuiInputBase-input': {
           padding: theme.spacing(1, 1, 1, 0),
           // vertical padding + font size from searchIcon
@@ -99,7 +96,7 @@ const Navbar = () => {
           <IconButton
             size="large"
             edge="start"
-            color="inherit"
+            color='inherit'
             aria-label="open drawer"
             sx={{ mr: 2 }}
           >
